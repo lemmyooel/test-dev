@@ -4,7 +4,7 @@
   "description": "Research Grant Automated System for CHED RESEARCH",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "author": "Lemuel Sales Llanza",
   "license": "ISC",
