@@ -1,0 +1,12 @@
+{{#if error}}
+ <div class="container mt-5">
+ <div class="alert alert-danger"> {{error}} </div>
+</div>
+{{/if}}
+
+{{#each errors}}
+<div class="container mt-5">
+    <div class="alert alert-danger">{{text}}</div>
+</div>
+{{else}}
+{{/each}}

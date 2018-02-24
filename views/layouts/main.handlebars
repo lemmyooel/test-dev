@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Matrix Admin</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+{{#if user}}
+    <!-- ADMIN STYLSHEETS -->>
+    <link rel="stylesheet" href="/public/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/public/css/bootstrap-responsive.min.css" />
+        <link rel="stylesheet" href="/public/css/style.css" />
+
+    <link rel="stylesheet" href="/public/css/fullcalendar.css" />
+    <link rel="stylesheet" href="/public/css/matrix-style.css" />
+    <link rel="stylesheet" href="/public/css/matrix-media.css" />
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/public/css/jquery.gritter.css" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+     
+
+    <!-- ENd of ADMIN STYLESHEETS -->
+{{else}}
+<!-- Main Page Stylesheets ETC -->
+<link rel="stylesheet" href="/public/hp/css/bootstrap.css" type="text/css" media="screen">
+<link rel="stylesheet" href="/public/hp/css/bootstrap-responsive.css" type="text/css" media="screen">    
+<link rel="stylesheet" href="/public/hp/css/style.css" type="text/css" media="screen">
+<script type="text/javascript" src="/public/hp/js/jquery.js"></script>  
+<script type="text/javascript" src="/public/hp/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="/public/hp/js/superfish.js"></script>
+<script type="text/javascript" src="/public/hp/js/jquery.ui.totop.js"></script>
+<script type="text/javascript" src="/public/hp/js/jquery.caroufredsel.js"></script>
+<script type="text/javascript" src="/public/hp/js/jquery.touchSwipe.min.js"></script>
+
+
+{{/if}}
+<!-- End of Main Page and Stylsheets -->
+
+</head>
+
+<body>
+
+
+        {{#if user}}
+        {{> _navbar}}
+        {{> _sidebar}}
+        {{{body}}}
+        {{else}}
+            {{{body}}}
+        {{/if}}
+       
+
+
+   
+
+    <!--end-main-container-part-->
+
+    <!-- footer area -->
+    {{> _footer}}
+{{#if user}}
+<script src="/public/js/jquery.min.js"></script> 
+<script src="/public/js/jquery.ui.custom.js"></script> 
+<script src="/public/js/bootstrap.min.js"></script> 
+<script src="/public/js/jquery.validate.js"></script> 
+<script src="/public/js/jquery.wizard.js"></script> 
+<script src="/public/js/matrix.js"></script> 
+<script src="/public/js/matrix.wizard.js"></script>
+
+<script src="/public/js/fullcalendar.min.js"></script> 
+
+<script src="/public/js/matrix.calendar.js"></script>
+
+
+    <script type="text/javascript">
+        // This function is called from the pop-up menus to transfer to
+        // a different page. Ignore if the value returned is a null string:
+        function goPage(newURL) {
+
+            // if url is empty, skip the menu dividers and reset the menu selection to default
+            if (newURL != "") {
+
+                // if url is "-", it is this page -- reset the menu:
+                if (newURL == "-") {
+                    resetMenu();
+                }
+                // else, send page to designated URL            
+                else {
+                    document.location.href = newURL;
+                }
+            }
+        }
+
+        // resets the menu selection upon entry to this page:
+        function resetMenu() {
+            document.gomenu.selector.selectedIndex = 2;
+        }
+    </script>
+  
+{{else}}
+    <script type="text/javascript" src="/public/hp/js/bootstrap.js"></script>
+
+{{/if}}
+</body>
+
+</html>
