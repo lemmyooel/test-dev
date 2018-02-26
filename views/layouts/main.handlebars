@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Matrix Admin</title>
+    <title>CHED Research</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -17,6 +17,14 @@
     <link rel="stylesheet" href="/public/css/matrix-media.css" />
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link rel="stylesheet" href="/public/css/jquery.gritter.css" />
+    <link rel="stylesheet" href="/public/css/bootstrap-wysihtml5.css" />
+<link rel="stylesheet" href="/public/css/colorpicker.css" />
+<link rel="stylesheet" href="/public/css/datepicker.css" />
+<link rel="stylesheet" href="/public/css/uniform.css" />
+<link rel="stylesheet" href="/public/css/select2.css" />
+<link rel="stylesheet" href="/public/css/matrix-style.css" />
+<link rel="stylesheet" href="/public/css/matrix-media.css" />
+
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
      
 
@@ -66,10 +74,18 @@
 <script src="/public/js/jquery.wizard.js"></script> 
 <script src="/public/js/matrix.js"></script> 
 <script src="/public/js/matrix.wizard.js"></script>
-
 <script src="/public/js/fullcalendar.min.js"></script> 
-
 <script src="/public/js/matrix.calendar.js"></script>
+<script src="/public/js/bootstrap-colorpicker.js"></script> 
+<script src="/public/js/bootstrap-datepicker.js"></script> 
+<script src="/public/js/jquery.toggle.buttons.js"></script> 
+<script src="/public/js/masked.js"></script> 
+<script src="/public/js/jquery.uniform.js"></script> 
+<script src="/public/js/select2.min.js"></script> 
+<script src="/public/js/matrix.form_common.js"></script> 
+<script src="/public/js/wysihtml5-0.3.0.js"></script> 
+<script src="/public/js/jquery.peity.min.js"></script> 
+<script src="/public/js/bootstrap-wysihtml5.js"></script> 
 
 
     <script type="text/javascript">
@@ -96,6 +112,9 @@
             document.gomenu.selector.selectedIndex = 2;
         }
     </script>
+    <script>
+	$('.textarea_editor').wysihtml5();
+</script>
   
 {{else}}
     <script type="text/javascript" src="/public/hp/js/bootstrap.js"></script>

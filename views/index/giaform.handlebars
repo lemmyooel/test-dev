@@ -1,50 +1,163 @@
 <div id="content">
   <div id="content-header">
-    <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#">Form elements</a> <a href="#" class="current">Form wizard</a> </div>
-    <h1>Form wizard</h1>
+    <div id="breadcrumb">
+      <a href="#" title="Go to Home" class="tip-bottom">
+        <i class="icon-home"></i> Home</a>
+      <a href="#">Form elements</a>
+      <a href="#" class="current">Form wizard</a>
+    </div>
+    <h1>
+      <i>Form A CHED Researh GIA Proposal Concept Note</i>
+    </h1>
+    <h5>Office of Planing, Research and Knowledge Management Commission on Higher Education</h5>
   </div>
-  <div class="container-fluid"><hr>
+  <div class="container-fluid">
+    <hr>
     <div class="row-fluid">
       <div class="span12">
         <div class="widget-box">
-          <div class="widget-title"> <span class="icon"> <i class="icon-pencil"></i> </span>
-            <h5>Form wizard &amp; validation</h5>
+          <div class="widget-title">
+            <span class="icon">
+              <i class="icon-pencil"></i>
+            </span>
+            <!-- <h5>G &amp; validation</h5> -->
           </div>
           <div class="widget-content nopadding">
-            <form id="form-wizard" class="form-horizontal" method="post">
+            <form id="form-wizard" class="form-horizontal" method="post" action="forms/reg-giaform">
               <div id="form-wizard-1" class="step">
-                <div class="control-group">
-                  <label class="control-label">Username</label>
-                  <div class="controls">
-                    <input id="username" type="text" name="username" />
-                  </div>
+                <div>
+                  <h5>Principal Investigator</h5>
                 </div>
                 <div class="control-group">
-                  <label class="control-label">Password</label>
-                  <div class="controls">
-                    <input id="password" type="password" name="password" />
+                  <div class="controls-row">
+                    <label class="span1 ">Full Name</label>
+                    <input type="text" name="prinFullname" class=" span3 m-wrap" placeholder="Full Name">
+                    <label class="span1">Institution Affiliation</label>
+                    <input type="text " name="prinInstitutionAffiliation" class="span3 m-wrap" placeholder="Institution or Affiliation">
+                    <label class="span1 m-wrap">Address</label>
+                    <input type="text " name="prinAddress" class="span3 m-wrap" placeholder="Address">
                   </div>
+                  <div class="controls-row">
+                     <label class="span1">Qualification </label>
+                    <input type="text" name="printQualification" class=" span3 m-wrap" placeholder="degree(s) training experience">
+                    <label class="span1">Phone Number </label>
+                    <input type="text" name="prinNumber" class=" span3 m-wrap" placeholder="Mobile Number">
+                    <label class="span1">Email</label>
+                    <input type="text" name="prinEmail" class=" span3 m-wrap" placeholder="sample@gmail.com">
+                  </div>
+                  <div class="controls-row">
+                     <label class="span1">ORCID </label>
+                    <input type="text" name="prinORCID" class=" span3 m-wrap" placeholder="leave blank if none">
+                    <label class="span2">Google Scholar Link: </label>
+                    <input type="text" name="prinUrl" class=" span6   m-wrap" placeholder="leave blank if none">
+                  </div>
+                  <div class="controls-row">
+                    <label class="span1">H-index </label>
+                    <input type="text" name="prinHindex" class=" span3 m-wrap" placeholder="leave blank if none">
+                    <label class="span1">Total publications</label>
+                    <input type="text" name="prinTotalPublication" class=" span3 m-wrap" placeholder="leave blank if none">
+                    <label class="span1">Total citations</label>
+                    <input type="text" name="prinTotalCitation" class=" span3 m-wrap" placeholder="leave blank if none">
+                  </div>
+                </div><br><hr><!-- End of Principal Investigator Group -->
+                <div> 
+                  <h5>Co-Investigator</h5>
                 </div>
                 <div class="control-group">
-                  <label class="control-label">Confirm Password</label>
-                  <div class="controls">
-                    <input id="password2" type="password" name="password2" />
+                  <div class="controls-row">
+                    <label class="span1 ">Full Name</label>
+                    <input type="text" name="cofullName" class=" span3 m-wrap" placeholder="Full Name">
+                    <label class="span1">Institution Affiliation</label>
+                    <input type="text " name="coInstitutionAffiliation" class="span3 m-wrap" placeholder="Institution or Affiliation">
+                    <label class="span1 m-wrap">Address</label>
+                    <input type="text " name="coAddress" class="span3 m-wrap" placeholder="Address">
+                  </div>
+                  <div class="controls-row">
+                     <label class="span1">Qualification </label>
+                    <input type="text" name="coQualification" class=" span3 m-wrap" placeholder="degree(s) training experience">
+                    <label class="span1">Phone Number </label>
+                    <input type="text" name="coNumber" class=" span3 m-wrap" placeholder="Mobile Number">
+                    <label class="span1">Email</label>
+                    <input type="text" name="coEmail" class=" span3 m-wrap" placeholder="sample@gmail.com">
+                  </div>
+                  <div class="controls-row">
+                     <label class="span1">ORCID </label>
+                    <input type="text" name="coORCID" class=" span3 m-wrap" placeholder="leave blank if none">
+                    <label class="span2">Google Scholar Link: </label>
+                    <input type="text" name="coUrl" class=" span6   m-wrap" placeholder="leave blank if none">
+                  </div>
+                  <div class="controls-row">
+                    <label class="span1">H-index </label>
+                    <input type="text" name="coHindex" class=" span3 m-wrap" placeholder="leave blank if none">
+                    <label class="span1">Total publications</label>
+                    <input type="text" name="coTotalPublication" class=" span3 m-wrap" placeholder="leave blank if none">
+                    <label class="span1">Total citations</label>
+                    <input type="text" name="coTotalCitation" class=" span3 m-wrap" placeholder="leave blank if none">
                   </div>
                 </div>
+                <div>
+                  <h5>Industry Partner or Collaborator</h5>
+                  <h6>Optional Leave Blank if none</h6>
+                </div>
+                 <div class="control-group">
+                  <div class="controls-row">
+                    <label class="span1 ">Full Name</label>
+                    <input type="text" name="partfullName" class=" span3 m-wrap" placeholder="Full Name">
+                    <label class="span1">Institution Affiliation</label>
+                    <input type="text " name="partInstitutionAffiliation" class="span3 m-wrap" placeholder="Institution or Affiliation">
+                    <label class="span1 m-wrap">Address</label>
+                    <input type="text " name="partAddress" class="span3 m-wrap" placeholder="Address">
+                  </div>
+                  <div class="controls-row">
+                     <label class="span1">Qualification </label>
+                    <input type="text" name="partQualification" class=" span3 m-wrap" placeholder="degree(s) training experience">
+                    <label class="span1">Phone Number </label>
+                    <input type="text" name="partNumber" class=" span3 m-wrap" placeholder="Mobile Number">
+                    <label class="span1">Email</label>
+                    <input type="text" name="partEmail" class=" span3 m-wrap" placeholder="sample@gmail.com">
+                  </div>
+                  <div class="controls-row">
+                     <label class="span1">Position </label>
+                    <input type="text" name="partORCID" class=" span3 m-wrap" placeholder="leave blank if none">
+                    <label class="span1">ORCID </label>
+                    <input type="text" name="partUrl" class=" span3  m-wrap" placeholder="leave blank if none">
+                    <label class="span1">Google Scholar Link: </label>
+                    <input type="text" name="partUrl" class=" span3   m-wrap" placeholder="leave blank if none">
+                  </div>
+                  <div class="controls-row">
+                    <label class="span1">H-index </label>
+                    <input type="text" name="partHindex" class=" span3 m-wrap" placeholder="leave blank if none">
+                    <label class="span1">Total publications</label>
+                    <input type="text" name="partTotalPublication" class=" span3 m-wrap" placeholder="leave blank if none">
+                    <label class="span1">Total citations</label>
+                    <input type="text" name="partTotalCitation" class=" span3 m-wrap" placeholder="leave blank if none">
+                  </div>
+                </div> <!-- end of Industry partner -->
+
+                <div class="controls-row">
+              <textarea class="textarea_editor span12" name ="teamLeaderDesc"rows="6" placeholder="Enter text ..."></textarea>
+            </div>
+              <div>
+                <p><h6>Research Team Leaders’ Description (max 400 words)</h6></p>
+                <p><h6>Provide us a narrative of your philosophy of (a) research and (b) teaching.  Why do you work on this field of research? Where did you earn your relevant degrees? What makes you the best researcher to take on this project?</h6></p>
               </div>
+              </div> <!-- end of Wizard 1 -->
+              <!-- 2nd Page form -->
               <div id="form-wizard-2" class="step">
                 <div class="control-group">
-                  <label class="control-label">Email</label>
-                  <div class="controls">
-                    <input id="email" type="text" name="email" />
+                  <div class="controls-row">
+                    <label class="span8">Do you have an existing University Research Council, URC (for Universities) or Institutional Research Board, IRB (for Colleges)?    </label>
+                     <label class ="span2">
+                  <input type="radio" class =""name="Yes" />
+                  First One</label>
+                <label class ="span2">
+                  <input type="radio" class ="" name="No" />
+                  Second One</label>
+                <label>
+                   
                   </div>
                 </div>
-                <div class="control-group">
-                  <label class="control-label">EULA</label>
-                  <div class="controls">
-                    <input id="eula" type="checkbox" name="eula" />
-                  </div>
-                </div>
+               
               </div>
               <div class="form-actions">
                 <input id="back" class="btn btn-primary" type="reset" value="Back" />
@@ -59,7 +172,3 @@
     </div>
   </div>
 </div>
-
- 
- 
- 

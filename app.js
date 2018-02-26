@@ -80,7 +80,8 @@ const index = require('./routes/index');
 app.use('/', index);
 const auth = require('./routes/auth');
 app.use('/auth', auth);
-
+const forms = require('./routes/forms');
+app.use('/forms', forms);
 
 /* Middleware for Body parser */
 app.use(bodyParser.urlencoded({ extended: false }));
