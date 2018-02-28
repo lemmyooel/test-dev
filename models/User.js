@@ -20,6 +20,10 @@ const RegularUserSchema = new Schema({
         type: String,
         required: true
     },
+    isAdmin: {
+        type:Boolean,
+        default: false
+    },
     date:{
         type: Date,
         default: Date.now
@@ -27,5 +31,4 @@ const RegularUserSchema = new Schema({
 });
 
 
- const User = mongoose.model('User', RegularUserSchema);
- module.exports = User;
+module.exports  = mongoose.model('User', RegularUserSchema);

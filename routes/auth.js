@@ -7,8 +7,11 @@ const mongoose = require('mongoose');
 
 require('../models/User');
 const User = mongoose.model('User');
+require('../models/AdminUser');
+const Admin = mongoose.model('Admin');
 
-//registration form 
+
+//registration form for Normal User
 router.post('/register',(req,res) =>{
     console.log(req.body)
     let errors = [];
@@ -55,8 +58,55 @@ router.post('/register',(req,res) =>{
         })// end of the promise
     }
     
-})//end of registration form
+})//end of registration form for normal User
 
+/** Start of the Registration for the Admin User */
+router.post('/reg-admin',(req,res) =>{
+    console.log(req.body)
+    let errors = [];
+    //validation 
+    if(req.body.adminpassword != req.body.adminpassword1) {
+        errors.push({text: 'Passwords do no match!'});
+    }if(req.body.adminpassword.length < 4 ){
+        errors.push({text: 'Password must atleast be 5 characters long' });
+    }if(errors.length > 0 ){
+        res.render('/reg-admin', {
+                     errors: errors,
+                     adminemail: req.body.adminemail,
+                     adminfirstName: req.body.adminfirstName,
+                     adminlastName: req.body.adminlastName
+                 });
+    }else{
+        Admin.findOne({
+            adminemail: req.body.adminemail
+        }).then(user => {
+            if(user){
+                req.flash('error_msg', 'Email already used');
+                res.redirect('/register/admin');
+            }else{
+                //Creating a new user
+                const newUser = new Admin({
+                    adminemail: req.body.adminemail,
+                    adminfirstName: req.body.adminfirstName,
+                    adminlastName: req.body.adminlastName,
+                    adminpassword: req.body.adminpassword
+                });
+                bcrypt.genSalt(10, (err,salt)=>{
+                    bcrypt.hash(newUser.password, salt, (err,hash) =>{
+                   
+                        newUser.password = hash;
+                        newUser.save().then(user =>{
+                            req.flash('success_msg', 'Congratulations you have successfully Registered');
+                            res.redirect('/login');
+                        })
+                    })
+                })
+
+            }
+        })// end of the promise
+    }
+    
+})
 
 
 /** PRocess Log IN porst */
@@ -78,4 +128,4 @@ router.post('/login', (req,res,next) =>{
         console.log('user Logs out');
     });
 
-        module.exports = router;
+ module.exports = router;

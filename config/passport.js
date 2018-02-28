@@ -7,6 +7,7 @@ const bcrypt = require('bcrypt');
 const keys = require('./keys');
 /**Loadint the user model */
 const User = mongoose.model('User');
+const Admin = mongoose.model('Admin');
 
 
 
@@ -32,9 +33,9 @@ module.exports = function (passport) {
                     })
                 })
             }));
-        
-            // authentication serializaion and desirialization this is for sessions managemnent 
-            passport.serializeUser(function (user, done) {
+
+              // authentication serializaion and desirialization this is for sessions managemnent 
+              passport.serializeUser(function (user, done) {
                 done(null, user.id);
             });
         
@@ -43,7 +44,38 @@ module.exports = function (passport) {
                     done(err, user);
                 });
             });
-}   
+
+        
+        //     Admin.findOne({
+        //         email: email
+        //     }).then(Adminuser => {
+        //         if (!Adminuser) {
+        //             return done(null, false, { message: 'No user found' });
+        //         }
+        //         //Matching the password using bcrypt
+        //         bcrypt.compare(password, Adminuser.password, (err, isMatch) => {
+        //             if (err) throw err;
+        //             if (isMatch) {
+        //                 return done(null, Adminuser);
+        //                 console.log(Adminuser);
+        //             } else {
+        //                 return done(null, false, { message: 'Incorrect Password try again' });
+        //             }
+        //         })
+        //     })
+        // }));
+        //     // authentication serializaion and desirialization this is for sessions managemnent 
+        //     passport.serializeUser(function (Adminuser, done) {
+        //         done(null, Adminuser.id);
+        //     });
+        
+        //     passport.deserializeUser(function (id, done) {
+        //         User.findById(id, function (err, Adminuser) {
+        //             done(err, Adminuser);
+        //         });
+        //     });
+} 
+
 
    
 

@@ -13,8 +13,8 @@ const bcrypt = require('bcrypt');
 
 
 
-
 /* ADDING DEPENDENCY FILES */
+require('./models/AdminUser');
 require('./models/User');
 const keys = require('./config/keys');
 require('./config/passport')(passport);

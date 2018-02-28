@@ -2,10 +2,6 @@ const express = require('express');
 const router = express.Router();
 
 
-
-
-
-
 /* Initial Routes */
 router.get('/', (req,res) =>{
     res.render('index/homepage');
@@ -23,6 +19,10 @@ router.get('/login', (req,res) =>{
 //Registration Page
 router.get('/register', (req,res) =>{
     res.render('index/register');
+})
+
+router.get('/register/admin', (req,res)=>{
+    res.render('index/registerAdmin');
 })
 
 // GIA form Registration
