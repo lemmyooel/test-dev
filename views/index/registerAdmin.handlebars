@@ -1,0 +1,98 @@
+
+<div id="main">
+
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="span12 clearfix">
+                    <div class="top1">
+                        <a href="index.html" class="logo">
+                            <img src="images/logo.png" alt="">
+                        </a>
+                    </div>
+                    <div class="top2">
+                        <div class="search-form-wrapper clearfix">
+                            <form id="search-form" action="search.php" method="GET" accept-charset="utf-8" class="navbar-form">
+                                <input type="text" name="s" value='Search' onBlur="if(this.value=='') this.value='Search'" onFocus="if(this.value =='Search' ) this.value=''">
+                                <a href="#" onClick="document.getElementById('search-form').submit()"></a>
+                            </form>
+                        </div>
+                        <div class="navbar navbar_">
+                            <div class="navbar-inner navbar-inner_">
+                                <a class="btn btn-navbar btn-navbar_" data-toggle="collapse" data-target=".nav-collapse_">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </a>
+                                <div class="nav-collapse nav-collapse_ collapse">
+                                    <ul class="nav sf-menu clearfix">
+                                        <li class="active">
+                                            <a href="/">Home</a>
+                                        </li>
+                                        <li class="">
+                                            <a href="/login">Log In</a>
+                                        </li>
+                                        <li class="">
+                                            <a href="/register">Register</a>
+                                        </li>
+
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+             <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                    <div class="x_panel">
+                            <h2>Registration form for Admin User</h2>
+                        <div class="x_content">
+                           
+					<form method="post" action="/auth/reg-admin"> 
+						<div class="form-group">
+							<label for="adminemail" class="">Email address</label>
+							<input type="email" class="form-control " name="adminemail" aria-describedby="emailHelp" placeholder="">
+						</div>
+                        <div class="form-group  col-md-6">
+							<label for="adminfirstName" class="">First Name </label>
+							<input type="text" class="form-control " name="adminfirstName" aria-describedby="emailHelp" placeholder="">
+						</div>
+                         <div class="form-group  col-md-6">
+							<label for="adminlastName" class="">Last Name </label>
+							<input type="text" class="form-control " name="adminlastName" aria-describedby="emailHelp" placeholder="">
+						</div>
+						<div class="form-group ">
+							<label for="adminpassword" class="">Password</label>
+							<input type="password" class="form-control " name="adminpassword" placeholder="">
+						</div>
+                        <div class="form-group ">
+							<label for="adminpassword1" class="">Confirm Password</label>
+							<input type="password" class="form-control " name="adminpassword1" placeholder="">
+						</div>
+					
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</form>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-md-3"></div>
+               
+                
+            </div>
+                    
+            </div>
+        </div>
+    </header>
+
+
+
+
+
+
+</div>
