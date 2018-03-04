@@ -28,10 +28,20 @@ app.listen(port, () =>{
     console.log('Successfully Connected to Port 3000');
 })
 
-/* Connecting to DB */
-mongoose.connect(keys.mongoURI).then(()=>{
-    console.log('Successfully connected to Cloud Database');
-});
+/* Connecting to online DB */
+// mongoose.connect(keys.mongoURI).then(()=>{
+//     console.log('Successfully connected to Cloud Database');
+// });
+
+mongoose.connect('mongodb://localhost/rgas-dev',{
+
+}).then(()=>{
+    console.log('COnnected to local DB');
+}).catch((err)=>{
+    console.log(err);
+})
+
+
 
 //handleabrs set up
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
@@ -70,7 +80,8 @@ app.use((req,res,next) =>{
     res.locals.success_msg = req.flash('success_msg');
     res.locals.error_msg = req.flash('error_msg');
     res.locals.error = req.flash('error');
-    res.locals.user = req.user || null;
+   res.locals.user = req.user ;
+  // res.locals.admin = req.user;
     next();
 });
 

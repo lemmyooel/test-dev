@@ -25,6 +25,10 @@ router.get('/register/admin', (req,res)=>{
     res.render('index/registerAdmin');
 })
 
+router.get('/login-admin', (req,res)=>{
+    res.render('index/loginAdmin');
+})
+
 // GIA form Registration
 router.get('/giaform', (req,res) =>{
     res.render('index/giaform');

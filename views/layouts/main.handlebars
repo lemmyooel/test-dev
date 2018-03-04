@@ -53,9 +53,13 @@
         {{#if user}}
         {{> _navbar}}
         {{> _sidebar}}
+        {{> _errors}}
+        {{> _msg}} 
         {{{body}}}
    
         {{else}}
+        {{> _errors}}
+                {{> _msg}} 
             {{{body}}}
         {{/if}}
        

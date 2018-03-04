@@ -79,8 +79,8 @@ router.post('/reg-admin',(req,res) =>{
     }else{
         Admin.findOne({
             adminemail: req.body.adminemail
-        }).then(user => {
-            if(user){
+        }).then(admin => {
+            if(admin){
                 req.flash('error_msg', 'Email already used');
                 res.redirect('/register/admin');
             }else{
@@ -92,12 +92,13 @@ router.post('/reg-admin',(req,res) =>{
                     adminpassword: req.body.adminpassword
                 });
                 bcrypt.genSalt(10, (err,salt)=>{
-                    bcrypt.hash(newUser.password, salt, (err,hash) =>{
-                   
-                        newUser.password = hash;
-                        newUser.save().then(user =>{
+                    bcrypt.hash(newUser.adminpassword, salt, (err,hash) =>{
+                       
+                        newUser.adminpassword = hash;
+                        newUser.save().then(admin =>{
                             req.flash('success_msg', 'Congratulations you have successfully Registered');
                             res.redirect('/login');
+                             console.log(newUser);
                         })
                     })
                 })
@@ -113,9 +114,22 @@ router.post('/reg-admin',(req,res) =>{
 router.post('/login', (req,res,next) =>{
     //    res.send('button clicked');
        //console.log(req.body);
-        passport.authenticate('local', {
+        passport.authenticate('user', {
             successRedirect: '/dashboard',
             failureRedirect: '/login',
+            failureFlash: true
+        })(req, res,next);
+    });
+    
+
+    
+/** PRocess Log IN porst */
+router.post('/login-admin', (req,res,next) =>{
+    //    res.send('button clicked');
+       //console.log(req.body);
+        passport.authenticate('admin', {
+            successRedirect: '/dashboard',
+            failureRedirect: '/login-admin',
             failureFlash: true
         })(req, res,next);
     });

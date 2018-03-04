@@ -13,7 +13,7 @@ const Admin = mongoose.model('Admin');
 
 module.exports = function (passport) {
   
-    passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
+    passport.use('user', new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
         
         User.findOne({
                     email: email
@@ -34,15 +34,80 @@ module.exports = function (passport) {
                 })
             }));
 
+     passport.use('admin', new LocalStrategy({ usernameField: 'adminemail', passwordField: 'adminpassword' }, (email, password, done) => {
+                
+                Admin.findOne({
+                            adminemail: email
+                        }).then(admin => {
+                            if (!admin) {
+                                return done(null, false, { message: 'No user found' });
+                            }
+                            //Matching the password using bcrypt
+                            bcrypt.compare(password, admin.adminpassword, (err, isMatch) => {
+                                if (err) throw err;
+                                if (isMatch) {
+                                    return done(null, admin);
+                                    
+                                } else {
+                                    return done(null, false, { message: 'Incorrect Password try again' });
+                                }
+                            })
+                        })
+                    }));
+
+
               // authentication serializaion and desirialization this is for sessions managemnent 
               passport.serializeUser(function (user, done) {
-                done(null, user.id);
+               
+                const key = {
+                    id:user.id,
+                    type: user.isAdmin
+                } ;
+                
+                done(null,key);
             });
         
-            passport.deserializeUser(function (id, done) {
-                User.findById(id, function (err, user) {
-                    done(err, user);
-                });
+            passport.deserializeUser(function (key, done) {
+              if (key.type == false ){
+                  User.findById(key.id, function (err, user){
+                      done(null, user);
+                  })
+              }  
+              if (key.type == true ){
+                Admin.findById(key.id, function (err, admin){
+                    done(null, admin);
+                })
+            }  
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+           // if(key.type === true ){
+                // Admin.findById(key.id,(err,user )=>{
+                //     done(null, admin);
+                //     console.log(admin);
+                // })
+         //   }
             });
 
         
