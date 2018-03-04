@@ -29,17 +29,17 @@ app.listen(port, () =>{
 })
 
 /* Connecting to online DB */
-// mongoose.connect(keys.mongoURI).then(()=>{
-//     console.log('Successfully connected to Cloud Database');
-// });
+mongoose.connect(keys.mongoURI).then(()=>{
+    console.log('Successfully connected to Cloud Database');
+});
 
-mongoose.connect('mongodb://localhost/rgas-dev',{
+// mongoose.connect('mongodb://localhost/rgas-dev',{
 
-}).then(()=>{
-    console.log('COnnected to local DB');
-}).catch((err)=>{
-    console.log(err);
-})
+// }).then(()=>{
+//     console.log('COnnected to local DB');
+// }).catch((err)=>{
+//     console.log(err);
+// })
 
 
 
