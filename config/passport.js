@@ -7,7 +7,7 @@ const bcrypt = require('bcrypt');
 const keys = require('./keys');
 /**Loadint the user model */
 const User = mongoose.model('User');
-const Admin = mongoose.model('Admin');
+//const Admin = mongoose.model('Admin');
 
 
 
@@ -34,26 +34,26 @@ module.exports = function (passport) {
                 })
             }));
 
-     passport.use('admin', new LocalStrategy({ usernameField: 'adminemail', passwordField: 'adminpassword' }, (email, password, done) => {
+    //  passport.use('admin', new LocalStrategy({ usernameField: 'adminemail', passwordField: 'adminpassword' }, (email, password, done) => {
                 
-                Admin.findOne({
-                            adminemail: email
-                        }).then(admin => {
-                            if (!admin) {
-                                return done(null, false, { message: 'No user found' });
-                            }
-                            //Matching the password using bcrypt
-                            bcrypt.compare(password, admin.adminpassword, (err, isMatch) => {
-                                if (err) throw err;
-                                if (isMatch) {
-                                    return done(null, admin);
+    //             Admin.findOne({
+    //                         adminemail: email
+    //                     }).then(user => {
+    //                         if (!user) {
+    //                             return done(null, false, { message: 'No user found' });
+    //                         }
+    //                         //Matching the password using bcrypt
+    //                         bcrypt.compare(password, user.adminpassword, (err, isMatch) => {
+    //                             if (err) throw err;
+    //                             if (isMatch) {
+    //                                 return done(null, user);
                                     
-                                } else {
-                                    return done(null, false, { message: 'Incorrect Password try again' });
-                                }
-                            })
-                        })
-                    }));
+    //                             } else {
+    //                                 return done(null, false, { message: 'Incorrect Password try again' });
+    //                             }
+    //                         })
+    //                     })
+    //                 }));    
 
 
               // authentication serializaion and desirialization this is for sessions managemnent 
@@ -61,21 +61,39 @@ module.exports = function (passport) {
                
                 const key = {
                     id:user.id,
-                    type: user.isAdmin
-                } ;
-                
+                    type: user.userType
+                };
                 done(null,key);
+           
             });
+
+                // if(user.isAdmin = false){
+
+                //     const key = {
+                //             id:user.id,
+                //             type: user.isAdmin 
+                //      } 
+                //     done(null,key);}
+                
+                // else if(user.isAdmin = true ){
+                //     const key = {
+                //         id:user.id,
+                //         type: user.isAdmin 
+                //     } ;
+                //     done(null,key);
+                // }
+                    
+ 
         
             passport.deserializeUser(function (key, done) {
-              if (key.type == false ){
+              if (key.type == 'normalUser'  ){
                   User.findById(key.id, function (err, user){
                       done(null, user);
                   })
               }  
-              if (key.type == true ){
-                Admin.findById(key.id, function (err, admin){
-                    done(null, admin);
+              else if (key.type == "adminUser" ){
+                User.findById(key.id, function (err, user){
+                    done(null, user);
                 })
             }  
        

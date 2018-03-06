@@ -14,7 +14,7 @@ const bcrypt = require('bcrypt');
 
 
 /* ADDING DEPENDENCY FILES */
-require('./models/AdminUser');
+//require('./models/AdminUser');
 require('./models/User');
 const keys = require('./config/keys');
 require('./config/passport')(passport);
@@ -22,29 +22,29 @@ require('./config/passport')(passport);
 
 /* EXPRESS AND HANDLEBARS PATHS*/
 const app = express();
-const port  = process.env.PORT || 3000;
+const port  = process.env.PORT || 4000;
 
 app.listen(port, () =>{
-    console.log('Successfully Connected to Port 3000');
+    console.log('Successfully Connected to Port 4000');
 })
 
 /* Connecting to online DB */
-mongoose.connect(keys.mongoURI).then(()=>{
-    console.log('Successfully connected to Cloud Database');
-});
+//mongoose.connect(keys.mongoURI).then(()=>{
+  //  console.log('Successfully connected to Cloud Database');
+//});
 
-// mongoose.connect('mongodb://localhost/rgas-dev',{
+mongoose.connect('mongodb://localhost/test-rgas',{
 
-// }).then(()=>{
-//     console.log('COnnected to local DB');
-// }).catch((err)=>{
-//     console.log(err);
-// })
+}).then(()=>{
+    console.log('COnnected to local DB');
+}).catch((err)=>{
+    console.log(err);
+})
 
 
 
 //handleabrs set up
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.engine('handlebars', exphbs({defaultLayout: 'tes'}));
 app.set('view engine', 'handlebars');
 
 
@@ -80,8 +80,8 @@ app.use((req,res,next) =>{
     res.locals.success_msg = req.flash('success_msg');
     res.locals.error_msg = req.flash('error_msg');
     res.locals.error = req.flash('error');
-   res.locals.user = req.user ;
-  // res.locals.admin = req.user;
+   // res.locals.user = req.user ;
+    res.locals.admin = req.user;
     next();
 });
 

@@ -61,53 +61,53 @@ router.post('/register',(req,res) =>{
 })//end of registration form for normal User
 
 /** Start of the Registration for the Admin User */
-router.post('/reg-admin',(req,res) =>{
-    console.log(req.body)
-    let errors = [];
-    //validation 
-    if(req.body.adminpassword != req.body.adminpassword1) {
-        errors.push({text: 'Passwords do no match!'});
-    }if(req.body.adminpassword.length < 4 ){
-        errors.push({text: 'Password must atleast be 5 characters long' });
-    }if(errors.length > 0 ){
-        res.render('/reg-admin', {
-                     errors: errors,
-                     adminemail: req.body.adminemail,
-                     adminfirstName: req.body.adminfirstName,
-                     adminlastName: req.body.adminlastName
-                 });
-    }else{
-        Admin.findOne({
-            adminemail: req.body.adminemail
-        }).then(admin => {
-            if(admin){
-                req.flash('error_msg', 'Email already used');
-                res.redirect('/register/admin');
-            }else{
-                //Creating a new user
-                const newUser = new Admin({
-                    adminemail: req.body.adminemail,
-                    adminfirstName: req.body.adminfirstName,
-                    adminlastName: req.body.adminlastName,
-                    adminpassword: req.body.adminpassword
-                });
-                bcrypt.genSalt(10, (err,salt)=>{
-                    bcrypt.hash(newUser.adminpassword, salt, (err,hash) =>{
+// router.post('/reg-admin',(req,res) =>{
+//     console.log(req.body)
+//     let errors = [];
+//     //validation 
+//     if(req.body.adminpassword != req.body.adminpassword1) {
+//         errors.push({text: 'Passwords do no match!'});
+//     }if(req.body.adminpassword.length < 4 ){
+//         errors.push({text: 'Password must atleast be 5 characters long' });
+//     }if(errors.length > 0 ){
+//         res.render('/reg-admin', {
+//                      errors: errors,
+//                      adminemail: req.body.adminemail,
+//                      adminfirstName: req.body.adminfirstName,
+//                      adminlastName: req.body.adminlastName
+//                  });
+//     }else{
+//         Admin.findOne({
+//             adminemail: req.body.adminemail
+//         }).then(admin => {
+//             if(admin){
+//                 req.flash('error_msg', 'Email already used');
+//                 res.redirect('/register/admin');
+//             }else{
+//                 //Creating a new user
+//                 const newUser = new Admin({
+//                     adminemail: req.body.adminemail,
+//                     adminfirstName: req.body.adminfirstName,
+//                     adminlastName: req.body.adminlastName,
+//                     adminpassword: req.body.adminpassword
+//                 });
+//                 bcrypt.genSalt(10, (err,salt)=>{
+//                     bcrypt.hash(newUser.adminpassword, salt, (err,hash) =>{
                        
-                        newUser.adminpassword = hash;
-                        newUser.save().then(admin =>{
-                            req.flash('success_msg', 'Congratulations you have successfully Registered');
-                            res.redirect('/login');
-                             console.log(newUser);
-                        })
-                    })
-                })
+//                         newUser.adminpassword = hash;
+//                         newUser.save().then(admin =>{
+//                             req.flash('success_msg', 'Congratulations you have successfully Registered');
+//                             res.redirect('/login');
+//                              console.log(newUser);
+//                         })
+//                     })
+//                 })
 
-            }
-        })// end of the promise
-    }
+//             }
+//         })// end of the promise
+//     }
     
-})
+// })
 
 
 /** PRocess Log IN porst */
@@ -128,7 +128,7 @@ router.post('/login-admin', (req,res,next) =>{
     //    res.send('button clicked');
        //console.log(req.body);
         passport.authenticate('admin', {
-            successRedirect: '/dashboard',
+            successRedirect: '/admin-dashboard',
             failureRedirect: '/login-admin',
             failureFlash: true
         })(req, res,next);

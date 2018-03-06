@@ -1,10 +1,32 @@
 const express = require('express');
 const router = express.Router();
+const mongoose = require('mongoose');
+
+require('../models/User');
+const User = mongoose.model('User');
 
 
-/* Initial Routes */
+
+/* Initial Routes user dashboard */
 router.get('/', (req,res) =>{
     res.render('index/homepage');
+})
+
+// ADMIN DASHBOARD
+router.get('/admin-dashboard', (req,res) =>{
+    res.render('index/admin-dashboard');
+})
+//Admin route for Monitoring the number of users 
+router.get('/monitor', (req,res) =>{
+    User.find({
+       
+    }).then(user => {
+        res.render('index/monitor',{
+            user:user
+        });
+        console.log(user);
+    });
+ 
 })
 
 //Homeage Route
@@ -36,6 +58,16 @@ router.get('/giaform', (req,res) =>{
 
 router.get('/test', (req,res) =>{
     res.render('index/test');
+})
+
+//profile router
+router.get('/profile', (req,res) =>{
+    User.findById({
+        _id : req.admin.id
+    }).then(user => {
+        res.render('index/profile');
+    })
+  
 })
 
 module.exports = router;

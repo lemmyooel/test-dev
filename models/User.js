@@ -20,9 +20,13 @@ const RegularUserSchema = new Schema({
         type: String,
         required: true
     },
-    isAdmin: {
-        type:Boolean,
-        default: false
+    // isAdmin: {
+    //     type:Boolean,
+    //     default: false
+    // },
+    userType: {
+        type:String,
+        default: 'normalUser'
     },
     date:{
         type: Date,
