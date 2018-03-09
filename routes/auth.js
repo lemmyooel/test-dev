@@ -3,12 +3,13 @@ const router = express.Router();
 const passport = require('passport');
 const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
+const conn = require('../app');
 
 
 require('../models/User');
 const User = mongoose.model('User');
 require('../models/AdminUser');
-const Admin = mongoose.model('Admin');
+//const Admin = conn.connction.model('Admin');
 
 
 //registration form for Normal User
@@ -111,28 +112,36 @@ router.post('/register',(req,res) =>{
 
 
 /** PRocess Log IN porst */
-router.post('/login', (req,res,next) =>{
-    //    res.send('button clicked');
-       //console.log(req.body);
-        passport.authenticate('user', {
-            successRedirect: '/dashboard',
-            failureRedirect: '/login',
+router.post('/login', (req,res,next) =>{ 
+        passport.authenticate('user',{
             failureFlash: true
-        })(req, res,next);
-    });
-    
+        }, function(err, user, info) {
+          if (err) { return next(err); }
+          if (!user) { return res.redirect('/login'); }
+          req.logIn(user, function(err) {
+            if (err) { return next(err); }
+            if(user.userType === "adminUser"){
+                console.log(user);
+                return res.redirect('/admin-dashboard');
+            } else {return res.redirect('/dashboard');}
+            
+          });
+        })(req, res, next);
+      });
+
+
 
     
-/** PRocess Log IN porst */
-router.post('/login-admin', (req,res,next) =>{
-    //    res.send('button clicked');
-       //console.log(req.body);
-        passport.authenticate('admin', {
-            successRedirect: '/admin-dashboard',
-            failureRedirect: '/login-admin',
-            failureFlash: true
-        })(req, res,next);
-    });
+// /** PRocess Log IN porst */
+// router.post('/login-admin', (req,res,next) =>{
+//     //    res.send('button clicked');
+//        //console.log(req.body);
+//         passport.authenticate('admin', {
+//             successRedirect: '/admin-dashboard',
+//             failureRedirect: '/login-admin',
+//             failureFlash: true
+//         })(req, res,next);
+//     });
     
     
     //Log out functionality

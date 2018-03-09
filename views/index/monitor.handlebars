@@ -87,14 +87,14 @@
                                             <th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0"
                                                 rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending"
                                                 style="width: 274px;">
-                                                <div class="DataTables_sort_wrapper">Date registered
+                                                <div class="DataTables_sort_wrapper">University
                                                     <span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span>
                                                 </div>
                                             </th>
                                              <th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0"
                                                 rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending"
                                                 style="width: 274px;">
-                                                <div class="DataTables_sort_wrapper">Status
+                                                <div class="DataTables_sort_wrapper">Job
                                                     <span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span>
                                                 </div>
                                             </th>
@@ -106,9 +106,10 @@
 
                                         {{#each user}}
                                             <tr class="gradeA odd">
-                                                <td class="  sorting_1"> {{email}}</td>
+                                                <td class="  sorting_1"><a href="/profile/{{id}}" > {{email}} </a></td>
                                                 <td class=" ">{{lastName}} , {{firstName}}</td>
-                                                <td class=" ">{{date}}</td>
+                                                <td class=" ">{{university}}</td>
+                                                <td class=" ">{{occupation}}</td>
                                             
                                             </tr>
                                         {{/each}}

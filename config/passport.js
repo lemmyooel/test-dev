@@ -89,11 +89,13 @@ module.exports = function (passport) {
               if (key.type == 'normalUser'  ){
                   User.findById(key.id, function (err, user){
                       done(null, user);
+                   //   res.redirect('/dashboard');
                   })
               }  
               else if (key.type == "adminUser" ){
                 User.findById(key.id, function (err, user){
                     done(null, user);
+                 //   res.redirect('/dashboard-admin');
                 })
             }  
        

@@ -1,365 +1,64 @@
-<div class="right_col" role="main">
-    <div class="">
-        <div class="page-title">
-            <div class="title_left">
-                <h3>Welcome {{user.firstName}}</h3>
-            </div>
-            <div class="clearfix"></div>
+<div id="content">
+  <div id="content-header">
+    <div id="breadcrumb">
+      <a href="#" title="Go to Home" class="tip-bottom">
+        <i class="icon-home"></i> Home</a>
 
+         </div>
         </div>
-        <div class="row">
-
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                    <div class="x_title">
-                        <h2>Form Wizards
-                            <small>Sessions</small>
-                        </h2>
-                        <ul class="nav navbar-right panel_toolbox">
-                            <li>
-                                <a class="collapse-link">
-                                    <i class="fa fa-chevron-up"></i>
-                                </a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    <i class="fa fa-wrench"></i>
-                                </a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="#">Settings 1</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Settings 2</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a class="close-link">
-                                    <i class="fa fa-close"></i>
-                                </a>
-                            </li>
-                        </ul>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="x_content">
-                        <p>This is a basic form wizard example that inherits the colors from the selected scheme.</p>
-                        <div id="wizard" class="form_wizard wizard_horizontal">
-                            <ul class="wizard_steps">
-                                <li>
-                                    <a href="#step-1">
-                                        <span class="step_no">1</span>
-                                        <span class="step_descr">
-                                            Step 1
-                                            <br />
-                                            <small>Step 1 description</small>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#step-2">
-                                        <span class="step_no">2</span>
-                                        <span class="step_descr">
-                                            Step 2
-                                            <br />
-                                            <small>Step 2 description</small>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#step-3">
-                                        <span class="step_no">3</span>
-                                        <span class="step_descr">
-                                            Step 3
-                                            <br />
-                                            <small>Step 3 description</small>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#step-4">
-                                        <span class="step_no">4</span>
-                                        <span class="step_descr">
-                                            Step 4
-                                            <br />
-                                            <small>Step 4 description</small>
-                                        </span>
-                                    </a>
-                                </li>
-                            </ul>
-                            <div id="step-1">
-                                <form action="/forms/gia" method="post" class="form-horizontal form-label-left">
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-md-12 ">
-                                            <h3 class="text-center">PRincipal Investigator</h3>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <div class="form-group form-group-sm">
-                                        <div class="col-md-8">
-                                            <!-- Start of the PRincipal Investigator -->
-                                            <div class="form-group col-md-3">
-                                                <label>Full Name</label>
-                                                <input type="text" class="form-control input-sm" name="prin-fullName" aria-describedby="emailHelp">
-                                            </div>
-                                            <div class="form-group  col-md-3">
-                                                <label>Institution Affiliation</label>
-                                                <input type="text" class="form-control" name="prin-insitutionAffiliation" placeholder="">
-                                            </div>
-                                            <div class="form-group  col-md-6">
-                                                <label>Address</label>
-                                                <input type="text" class="form-control" name="prim-address" placeholder="">
-                                            </div>
-                                            <div class="form-group col-md-12">
-                                                <label>Qualification (degree(s) training experience)</label>
-                                                <input type="text" class="form-control" name="prim-qualification" placeholder="">
-                                            </div>
-
-                                        </div>
-
-                                        <div class="col-md-4">
-
-                                            <div class="form-group  col-md-12">
-                                                <label>Phone</label>
-                                                <input type="text" class="form-control input-sm" name="prin-phone" aria-describedby="emailHelp">
-                                            </div>
-                                            <div class="form-group  col-md-12">
-                                                <label>Email</label>
-                                                <input type="email" class="form-control input-sm" name="prin-email" aria-describedby="emailHelp">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-7">
-                                            <div class="form-group col-md-6">
-                                                <label>ORCID</label>
-                                                <input type="text" class="form-control input-sm" name="prim-orcID" aria-describedby="emailHelp">
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label>Google Scholar Link</label>
-                                                <input type="text" class="form-control input-sm" name="prim-googleScholarlink" aria-describedby="emailHelp">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div class="form-group  col-md-3">
-                                                <label>H-index</label>
-                                                <input type="text" class="form-control input-sm" name="prim-Hindex" aria-describedby="emailHelp">
-                                            </div>
-                                            <div class="form-group col-md-3">
-                                                <label>Total publications:</label>
-                                                <input type="text" class="form-control input-sm" name="prim-totalPublication" aria-describedby="emailHelp">
-                                            </div>
-                                            <div class="form-group  col-md-3">
-                                                <label>Total citations:</label>
-                                                <input type="text" class="form-control input-sm" name="prim-totalCitation" aria-describedby="emailHelp">
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <!-- End of Principal Investigator -->
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-md-12 ">
-                                            <h3 class="text-center">Co-Investigator</h3>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <div class="form-group form-group-sm">
-                                        <div class="col-md-8">
-                                            <!-- Start of the PRincipal Investigator -->
-                                            <div class="form-group col-md-3">
-                                                <label>Full Name</label>
-                                                <input type="text" class="form-control input-sm" name="co-fullName" aria-describedby="emailHelp">
-                                            </div>
-                                            <div class="form-group  col-md-3">
-                                                <label>Institution Affiliation</label>
-                                                <input type="text" class="form-control" name="co-intitutionAffiliation" placeholder="">
-                                            </div>
-                                            <div class="form-group  col-md-6">
-                                                <label>Address</label>
-                                                <input type="text" class="form-control" name="co-address" placeholder="">
-                                            </div>
-                                            <div class="form-group col-md-12">
-                                                <label>Qualification (degree(s) training experience)</label>
-                                                <input type="text" class="form-control" name="co-qualification" placeholder="">
-                                            </div>
-
-                                        </div>
-
-                                        <div class="col-md-4">
-
-                                            <div class="form-group  col-md-12">
-                                                <label>Phone</label>
-                                                <input type="text" class="form-control input-sm" name="co-phone" aria-describedby="emailHelp">
-                                            </div>
-                                            <div class="form-group  col-md-12">
-                                                <label>Email</label>
-                                                <input type="email" class="form-control input-sm" name="co-email" aria-describedby="emailHelp">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-7">
-                                            <div class="form-group col-md-6">
-                                                <label>ORCID</label>
-                                                <input type="text" class="form-control input-sm" name="exampleInputEmail1" aria-describedby="emailHelp">
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label>Google Scholar Link</label>
-                                                <input type="text" class="form-control input-sm" name="co-googleScholarlink" aria-describedby="emailHelp">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div class="form-group  col-md-3">
-                                                <label>H-index</label>
-                                                <input type="text" class="form-control input-sm" name="co-Hindex" aria-describedby="emailHelp">
-                                            </div>
-                                            <div class="form-group col-md-3">
-                                                <label>Total publications:</label>
-                                                <input type="text" class="form-control input-sm" name="co-totalPublication" aria-describedby="emailHelp">
-                                            </div>
-                                            <div class="form-group  col-md-3">
-                                                <label>Total citations:</label>
-                                                <input type="text" class="form-control input-sm" name="co-totalcitation" aria-describedby="emailHelp">
-                                            </div>
-                                        </div>
-
-                                    </div> <!-- End of Assistant Investigator -->
-                                      <hr>
-                                    <div class="row">
-                                        <div class="col-md-12 ">
-                                            <h3 class="text-center">Industry Partner or Collaborator (Optional) </h3>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <div class="form-group form-group-sm">
-                                        <div class="col-md-8">
-                                            <!-- Start of the PRincipal Investigator -->
-                                            <div class="form-group col-md-3">
-                                                <label>Full Name</label>
-                                                <input type="text" class="form-control input-sm" named="ipoc-fullName" aria-describedby="emailHelp">
-                                            </div>
-                                            <div class="form-group col-md-3">
-                                                <label>Position</label>
-                                                <input type="text" class="form-control input-sm" name="ipoc-position" aria-describedby="emailHelp">
-                                            </div>
-                                            <div class="form-group  col-md-3">
-                                                <label>Institution Affiliation</label>
-                                                <input type="text" class="form-control" name="ipoc-institutionAffiliation" placeholder="">
-                                            </div>
-                                            <div class="form-group  col-md-6">
-                                                <label>Address</label>
-                                                <input type="text" class="form-control" name="ipoc-address" placeholder="">
-                                            </div>
-                                            <div class="form-group col-md-12">
-                                                <label>Qualification (degree(s) training experience)</label>
-                                                <input type="text" class="form-control" name="ipoc-qualification" placeholder="">
-                                            </div>
-
-                                        </div>
-
-                                        <div class="col-md-4">
-
-                                            <div class="form-group  col-md-12">
-                                                <label>Phone</label>
-                                                <input type="text" class="form-control input-sm" name="ipoc-phone" aria-describedby="emailHelp">
-                                            </div>
-                                            <div class="form-group  col-md-12">
-                                                <label>Email</label>
-                                                <input type="email" class="form-control input-sm" name="ipoc-email" aria-describedby="emailHelp">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-7">
-                                            <div class="form-group col-md-6">
-                                                <label>ORCID</label>
-                                                <input type="text" class="form-control input-sm" name="ipoc-orcID" aria-describedby="emailHelp">
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label>Google Scholar Link</label>
-                                                <input type="text" class="form-control input-sm" name="ipoc-googleScholarlink" aria-describedby="emailHelp">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div class="form-group  col-md-3">
-                                                <label>H-index</label>
-                                                <input type="text" class="form-control input-sm" name="Hindex" aria-describedby="emailHelp">
-                                            </div>
-                                            <div class="form-group col-md-3">
-                                                <label>Total publications:</label>
-                                                <input type="text" class="form-control input-sm" name="ipoc-totalPublication" aria-describedby="emailHelp">
-                                            </div>
-                                            <div class="form-group  col-md-3">
-                                                <label>Total citations:</label>
-                                                <input type="text" class="form-control input-sm" name="ipoc-totalCitation" aria-describedby="emailHelp">
-                                            </div>
-                                        </div>
-
-                                    </div> <!-- Industry Partner or Collaborator -->
-                                </form>
-
-
-                            </div>
-                            <div id="step-2">
-                                <h2 class="StepTitle">Step 2 Content</h2>
-                                <p>
-                                    do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                                    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-                                    in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                                    cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                </p>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-                                    ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                                    sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                </p>
-                            </div>
-                            <div id="step-3">
-                                <h2 class="StepTitle">Step 3 Content</h2>
-                                <p>
-                                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                                    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-                                    in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                                    cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                </p>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-                                    ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                                    sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                </p>
-                            </div>
-                            <div id="step-4">
-                                <h2 class="StepTitle">Step 4 Content</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                    ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-                                    in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                                    cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                </p>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-                                    ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                                    sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                </p>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-                                    ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                                    sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                </p>
-                            </div>
-
-                        </div>
-                        <!-- End SmartWizard Content -->
-                    </div>
-                </div>
-            </div>
+  <div class="container-fluid">
+    <hr>
+    <div class="row-fluid">
+        <div class="widget-box">
+        <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
+          <h5>Initial Application for GIA</h5>
         </div>
-    </div>
+        <div class="widget-content nopadding">
+          <form action="/gia-upload" method="POST" class="form-horizontal">
+            <div class="control-group">
+              <label class="control-label">First Name :</label>
+              <div class="controls">
+                <input type="text" class="span11" value="{{admin.firstName}}">
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label">Last Name :</label>
+              <div class="controls">
+                <input type="text" class="span11" value="{{admin.lastName}}">
+              </div>
+            </div>
+            
+            <div class="control-group">
+              <label class="control-label">University</label>
+              <div class="controls">
+                <input type="text" class="span11" value="{{admin.university}}">
+              </div>
+            </div>
+              <div class="control-group">
+              <label class="control-label">Job Role</label>
+              <div class="controls">
+                <input type="text" class="span11" value="{{admin.occupation}}">
+              </div>
+            </div>
+        
+            <div class="control-group">
+              <label class="control-label">Message</label>
+              <div class="controls">
+                <textarea class="span11" name="giaDesc"></textarea>
+                <span class="help-block">Write a short Summary of your Research </span>
+              </div>
+            </div>
+           <div class="control-group">
+              <label class="control-label">Upload your Completed GIA form</label>
+              <div class="controls">
+                <div class="uploader" id="uniform-undefined"><input type="file" name="file" size="19" style="opacity: 0;"><span class="filename">No file selected</span><span class="action">Choose File</span></div>
+              </div>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+</div>
 </div>

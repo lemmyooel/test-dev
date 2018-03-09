@@ -7,7 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 {{#if admin}}
+
     <!-- ADMIN STYLSHEETS -->>
+
+
     <link rel="stylesheet" href="/public/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/public/css/bootstrap-responsive.min.css" />
         <link rel="stylesheet" href="/public/css/style.css" />
@@ -15,9 +18,10 @@
     <link rel="stylesheet" href="/public/css/fullcalendar.css" />
     <link rel="stylesheet" href="/public/css/matrix-style.css" />
     <link rel="stylesheet" href="/public/css/matrix-media.css" />
-    <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="/public/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link rel="stylesheet" href="/public/css/jquery.gritter.css" />
     <link rel="stylesheet" href="/public/css/bootstrap-wysihtml5.css" />
+
 <link rel="stylesheet" href="/public/css/colorpicker.css" />
 <link rel="stylesheet" href="/public/css/datepicker.css" />
 <link rel="stylesheet" href="/public/css/uniform.css" />
@@ -51,11 +55,13 @@
 
 
         {{#if admin}}
+            {{> _errors}}
+        {{> _msg}} 
         {{> _navbar}}
         {{> _sidebar}}
-        {{> _errors}}
-        {{> _msg}} 
+      
         {{{body}}}
+      
    
         {{else}}
         {{> _errors}}

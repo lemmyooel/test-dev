@@ -1,11 +1,15 @@
 {{#if success_msg}}
-    <div class="container mt-5">
-    <div class="alert alert-success">{{success_msg}}</div>
+
+     <div class="container mt-5">
+    <div class="alert alert-success ">{{success_msg}}
+     <button type="button" class="close" aria-label="Close"><span aria-hidden="false">&times;</span></button>
     </div>
+    </div>
+
 {{/if}}
 
 {{#if error_msg}}
      <div class="container mt-5">
-    <div class="alert alert-danger">{{error_msg}}</div>
+    <div class="alert alert-danger ">{{error_msg}}</div>
     </div>
 {{/if}}
